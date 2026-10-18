@@ -90,7 +90,7 @@ def teacher_dashboard():
     if st.session_state.current_teacher_tab == "attendance_records":
         teacher_tab_attendance_records()
 
-    footer_dashboard()
+    # footer_dashboard()
 
 def teacher_tab_take_attendance():
     teacher_id = st.session_state.teacher_data['teacher_id']
@@ -248,6 +248,7 @@ def teacher_tab_attendance_records():
         data.append({
             "ts_group": ts.split(".")[0] if ts else None,
             "Time": datetime.fromisoformat(ts).strftime("%Y-%m-%d %I:%M %p") if ts else "N'A",
+            "Subject": r['subjects']['name'],
             "Subject Code":r['subjects']['subject_code'],
             "is_present": bool(r.get('is_present', False))
         })
@@ -325,7 +326,7 @@ def teacher_screen_login():
             st.session_state.teacher_login_type = 'register'
 
 
-    footer_dashboard()
+    # footer_dashboard()
 
 def register_teacher(teacher_username, teacher_name, teacher_pass, teacher_pass_confirm):
     if not teacher_username or not teacher_name or not teacher_pass:
@@ -386,4 +387,4 @@ def teacher_screen_register():
         if st.button('Login Instead', type="primary", icon=':material/passkey:', width='stretch'):
             st.session_state.teacher_login_type = "login"
 
-    footer_dashboard()
+    # footer_dashboard()

@@ -45,6 +45,7 @@ def student_dashboard():
         subjects = get_student_subjects(student_id)
         logs = get_student_attendance(student_id)
 
+
     stats_map = {}
 
     for log in logs:
@@ -55,7 +56,7 @@ def student_dashboard():
 
         stats_map[sid]['total'] +=1
 
-        if logs.get('is_prsent'):
+        if log.get('is_present'):
             stats_map[sid]['attended'] +=1
 
     cols = st.columns(2)
@@ -185,4 +186,4 @@ def student_screen():
 
 
 
-    footer_dashboard()
+    # footer_dashboard()

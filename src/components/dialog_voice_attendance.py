@@ -47,11 +47,12 @@ def voice_attendance_dialog(selected_subject_id):
                 student = node['students']
                 score = detected_scores.get(student['student_id'], 0.0)
                 is_present = bool(score> 0)
+                sources = ["Voice Recognition"] if is_present else []
 
                 results.append({
                     "Name": student['name'],
                     "ID": student['student_id'],
-                    "Source": ", ".join(sources) if is_present else "_",
+                    "Source": ", ".join(sources) if is_present and sources else "_",
                     "Status": "✅ Present" if is_present else "❌ Absent"
                 })
 
