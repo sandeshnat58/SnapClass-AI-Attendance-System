@@ -1,3 +1,4 @@
+streamlit
 # Utilitites
 
 numpy
@@ -15,4 +16,7 @@ bcrypt
 segno
 pillow
 
-streamlit
+
+
+librosa
+resemblyzer
